@@ -83,7 +83,7 @@ form.addEventListener("submit", function (e) {
   } de ${data.getFullYear()}.</p>
       <p> Hora: ${horas}:${minutos}.</p>                   
       <p>Idade: ${calculaIdade(dataNasc)}</p>
-      <p>Seu IMC é ${imc} (${nivelImc}).</p>`;
+      <p>Seu IMC é: <span class="imc__result">${imc}</span> ${nivelImc}</p>`;
   setResultado(msg, true);
 });
 
@@ -119,26 +119,26 @@ function getNivelImc(imc) {
     "Sobrepeso",
     "Obesidade (Grau I)",
     "Obesidade Severa (Grau II)",
-    "Obesidade Mórbida (Grau III)",
+    "Obesidade Mórbida - Grau III",
   ];
 
   if (imc >= 39.9) {
-    return nivel[5];
+    return (nivel[5] = `<span class="nivel__result" style="background:#f82e00">${nivel[5]}</span>`);
   }
   if (imc >= 34.9) {
-    return nivel[4];
+    return (nivel[4] = `<span class="nivel__result" style="background:#f8970d">${nivel[4]}</span>`);
   }
   if (imc >= 29.9) {
-    return nivel[3];
+    return (nivel[3] = `<span class="nivel__result" style="background:#ffe406">${nivel[3]}</span>`);
   }
   if (imc >= 24.9) {
-    return nivel[2];
+    return (nivel[2] = `<span class="nivel__result" style="background:#66ff00">${nivel[2]}</span>`);
   }
   if (imc >= 18.5) {
-    return nivel[1];
+    return (nivel[1] = `<span class="nivel__result" style="background:#009900">${nivel[1]}</span>`);
   }
   if (imc < 18.5) {
-    return nivel[0];
+    return (nivel[0] = `<span class="nivel__result" style="background:#ffe406">${nivel[0]}</span>`);
   }
 }
 
