@@ -1,9 +1,9 @@
 .paragrafo-resultado,
 .bad {
   background: #ebe1e0c7;
-  padding: 10px 20px;
+  padding: 1rem 1.5rem;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
   box-shadow: var(--sombra);
 }
 
@@ -11,15 +11,28 @@
   background: rgb(255, 150, 150);
 }
 .paragrafo-resultado p {
-  font-size: var(--fonte-tamanho-resultado);
+  font-size: 1rem;
   margin-bottom: 0.5rem;
+}
+
+.paragrafo-resultado p:nth-child(2) {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d1d0d0;
+}
+.paragrafo-resultado p:nth-child(3) {
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #d1d0d0;
+  text-align: center;
+  font-weight: bold;
 }
 .nome__result {
   font-weight: bolder;
   text-align: center;
   border: 1px solid;
   border-radius: 5px;
-  padding: 5px 10px;
+  padding: 1rem 0.5rem;
   background: #e4d4d1f6;
 }
 .imc__result {
@@ -27,9 +40,17 @@
   text-align: center;
   border-bottom: 1px solid;
 }
+.imc-result__p {
+  text-align: center;
+  border-top: 1px solid #d1d0d0;
+  margin-top: 1rem;
+  padding-top: 1rem;
+}
 .nivel__result {
   font-weight: bold;
   border-radius: 5px;
-  padding: 2px 5px;
-  margin-left: 5px;
+  padding: 1rem 0.5rem;
+  margin-top: 1rem;
+  display: grid;
+  text-align: center;
 }

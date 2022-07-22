@@ -78,12 +78,16 @@ form.addEventListener("submit", function (e) {
   const nivelImc = getNivelImc(imc);
   const msg = `
       <p class="nome__result">Olá ${nome}</p>    
-      <p>${diaSemana[data.getDay()]}, ${data.getDate()} de ${
+      <p><span style="font-weight:bold">${
+        diaSemana[data.getDay()]
+      }</span>, ${data.getDate()} de ${
     meses[data.getMonth()]
   } de ${data.getFullYear()}.</p>
-      <p> Hora: ${horas}:${minutos}.</p>                   
-      <p>Idade: ${calculaIdade(dataNasc)}</p>
-      <p>Seu IMC é: <span class="imc__result">${imc}</span> ${nivelImc}</p>`;
+      <p> Hora: ${horas}:${minutos}</p>                   
+      <p><span style="font-weight:bold">Idade:</span> ${calculaIdade(
+        dataNasc
+      )}</p>
+      <p class="imc-result__p">Seu IMC é: <span class="imc__result">${imc}</span> ${nivelImc}</p>`;
   setResultado(msg, true);
 });
 
@@ -123,7 +127,7 @@ function getNivelImc(imc) {
   ];
 
   if (imc >= 39.9) {
-    return (nivel[5] = `<span class="nivel__result" style="background:#f82e00">${nivel[5]}</span>`);
+    return (nivel[5] = `<span class="nivel__result" style="background:#f82e00; color:#fff">${nivel[5]}</span>`);
   }
   if (imc >= 34.9) {
     return (nivel[4] = `<span class="nivel__result" style="background:#f8970d">${nivel[4]}</span>`);
@@ -135,7 +139,7 @@ function getNivelImc(imc) {
     return (nivel[2] = `<span class="nivel__result" style="background:#66ff00">${nivel[2]}</span>`);
   }
   if (imc >= 18.5) {
-    return (nivel[1] = `<span class="nivel__result" style="background:#009900">${nivel[1]}</span>`);
+    return (nivel[1] = `<span class="nivel__result" style="background:#009900; color:#fff">${nivel[1]}</span>`);
   }
   if (imc < 18.5) {
     return (nivel[0] = `<span class="nivel__result" style="background:#ffe406">${nivel[0]}</span>`);
