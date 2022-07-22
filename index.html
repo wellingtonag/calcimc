@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="./assets/css/componentes/inputs.css" />
     <link rel="stylesheet" href="./assets/css/componentes/botao.css" />
     <link rel="stylesheet" href="./assets/css/componentes/resultado.css" />
+    <link rel="stylesheet" href="./assets/css/componentes/graus.css" />
   </head>
 
   <body>
@@ -69,9 +70,7 @@
                 required
               />
               <label class="input-label" for="idade">Data de nascimento</label>
-              <span class="input-mensagem-erro"
-                >Este campo não está válido</span
-              >
+              <span id="message" class="input-mensagem-erro"></span>
             </div>
           </fieldset>
 
@@ -115,7 +114,7 @@
           <button class="botao" type="submit">Enviar</button>
         </form>
       </section>
-      <div id="resultado"></div>
+      <div id="resultado" class="cores"></div>
     </main>
     <script src="./assets/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -133,5 +132,20 @@
         $("#altura").mask(mascara, { reverse: true });
       });
     </script>
+    <!-- <script>
+      var labels = document
+        .getElementsById("resultado")
+        .parentNode.getElementsByTagName("p");
+      for (var i = 0; i < labels.length; i++) {
+        var valor = labels[i].innerHTML;
+
+        if (valor < "18.5") labels[i].className = "amarelo";
+        if (valor >= "18.5") labels[i].className = "verde";
+        if (valor >= "24.9") labels[i].className = "verdeClaro";
+        if (valor >= "29.9") labels[i].className = "amarelo";
+        if (valor >= "34.9") labels[i].className = "laranja";
+        if (valor >= "39.9") labels[i].className = "vermelho";
+      }
+    </script> -->
   </body>
 </html>

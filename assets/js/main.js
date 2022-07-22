@@ -76,46 +76,40 @@ form.addEventListener("submit", function (e) {
 
   const imc = getImc(peso, altura);
   const nivelImc = getNivelImc(imc);
-  const msg = `<p>${diaSemana[data.getDay()]},${data.getDate()} de ${
+  const msg = `
+      <p class="nome__result">Olá ${nome}</p>    
+      <p>${diaSemana[data.getDay()]}, ${data.getDate()} de ${
     meses[data.getMonth()]
-  } de ${data.getFullYear()}. Hora: ${horas}:${minutos}.</p>
-               <p>Nome: ${nome}</p>
-               
-               <p>Idade: ${calculaIdade(dataNasc)} Anos</p>
-               <p>Seu IMC é ${imc} (${nivelImc}).</p>`;
+  } de ${data.getFullYear()}.</p>
+      <p> Hora: ${horas}:${minutos}.</p>                   
+      <p>Idade: ${calculaIdade(dataNasc)}</p>
+      <p>Seu IMC é ${imc} (${nivelImc}).</p>`;
   setResultado(msg, true);
-  // continua o código
 });
 
-function calculaIdade(dataNasc) {
-  const dataAtual = new Date();
-  let anoAtual = dataAtual.getFullYear();
-  let anoNascParts = dataNasc.split("/");
-  let diaNasc = anoNascParts[0];
-  let mesNasc = anoNascParts[1];
-
-  let anoNasc = anoNascParts[2];
-  let idade = anoAtual - anoNasc;
-  let mesAtual = dataAtual.getMonth() + 1;
-
-  //Se mês atual for menor que o nascimento, não fez aniversário ainda;
-
-  if (mesAtual < mesNasc) {
-    idade--;
+function calculaIdade() {
+  var userinput = document.getElementById("idade").value;
+  var dataNasc = new Date(userinput);
+  if (userinput == null || userinput == "") {
+    document.getElementById("message").innerHTML = "**Escolha uma data!";
+    return false;
   } else {
-    // se tiver no mês de nascimento, verificar o dia;
+    //calculate month difference from current date in time
+    var month_diff = Date.now() - dataNasc.getTime();
 
-    if (mesAtual === mesNasc) {
-      if (new Date().getDate() < diaNasc) {
-        //se a data atual for menor que o dia do nascimento, não fez aniversário ainda
+    //convert the calculated difference in date format
+    var age_dt = new Date(month_diff);
 
-        idade--;
-      }
-    }
+    //extract year from date
+    var year = age_dt.getUTCFullYear();
+
+    //now calculate the age of the user
+    var age = Math.abs(year - 1970);
+
+    //display the calculated age
+    return (document.getElementById("idade").innerHTML =
+      "Você tem " + age + " anos. ");
   }
-
-  //document.write(`Data do Aniversário: ${diaNasc}/${mesNasc} <br>`); //sem solução ainda
-  return idade;
 }
 
 function getNivelImc(imc) {
@@ -173,6 +167,3 @@ function setResultado(msg, isValid) {
   p.innerHTML = msg;
   resultado.appendChild(p);
 }
-// document.getElementById("altura").addEventListener("change", function () {
-//   this.value = parseFloat(this.value).toFixed(2);
-// });

@@ -3,6 +3,8 @@
   background: #ebe1e0c7;
   padding: 10px 20px;
   border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: var(--sombra);  
 }
 
 .bad {
@@ -11,4 +13,8 @@
 .paragrafo-resultado p {
   font-size: var(--fonte-tamanho-resultado);
   margin-bottom: 0.5rem;
+}
+.nome__result{
+  font-weight: bolder;
+  text-align: center;
 }
