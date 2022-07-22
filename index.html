@@ -1,34 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calcule seu IMC</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/base/base.css" />
+    <link rel="stylesheet" href="./assets/css/cadastro.css" />
+    <link rel="stylesheet" href="./assets/css/componentes/cartao.css" />
+    <link rel="stylesheet" href="./assets/css/componentes/inputs.css" />
+    <link rel="stylesheet" href="./assets/css/componentes/botao.css" />
+    <link rel="stylesheet" href="./assets/css/componentes/resultado.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Calcule seu IMC</title>
-  <link rel="stylesheet" href="./assets/css/style.css">
-</head>
+  <body>
+    <main class="container flex flex--coluna flex--centro">
+      <div class="cadastro-cabecalho">
+        <img
+          class="cadastro-cabecalho__logo"
+          src="./assets/img/imc.png"
+          alt="Logo IMC"
+        />
+        <h1 class="cadastro-cabecalho__titulo">Calculadora de IMC</h1>
+      </div>
+      <section class="cartao">
+        <h2 class="cartao__titulo">Preencha os dados a seguir:</h2>
+        <form
+          action="/"
+          id="formulario"
+          method="POST"
+          class="formulario flex flex--coluna"
+        >
+          <fieldset>
+            <legend class="formulario__legenda">Informações básicas</legend>
 
-<body>
+            <div class="input-container">
+              <input
+                name="nome"
+                id="nome"
+                class="input"
+                type="text"
+                placeholder="Nome"
+                data-tipo="nome"
+                required
+              />
+              <label class="input-label" for="nome">Nome</label>
+              <span class="input-mensagem-erro"
+                >Este campo não está válido</span
+              >
+            </div>
 
-  <section class="container">
-    <h1>Calcule seu IMC</h1>
-    <form action="/" id="formulario" method="POST">
-      <label for="nome">Nome completo</label>
-      <input type="text" id="nome" name="nome">
-      <label for="idade">Data de nascimento</label>
-      <input type="text" id="idade" name="idade">
-      <label for="peso">Peso</label>
-      <input type="text" id="peso" name="peso">
-      <label for="altura">Altura</label>
-      <input type="text" id="altura" name="altura">
-      <button type="submit">Enviar</button>
-    </form>
+            <div class="input-container">
+              <input
+                name="idade"
+                id="idade"
+                class="input"
+                type="date"
+                data-tipo="dataNascimento"
+                placeholder="Data de nascimento"
+                required
+              />
+              <label class="input-label" for="idade">Data de nascimento</label>
+              <span class="input-mensagem-erro"
+                >Este campo não está válido</span
+              >
+            </div>
+          </fieldset>
 
-    <div id="resultado"></div>
-  </section>
+          <fieldset>
+            <legend class="formulario__legenda">Dados para medição</legend>
 
-  <script src="./assets/js/main.js"></script>
-</body>
+            <div class="input-container">
+              <input
+                type="text"
+                id="peso"
+                class="input"
+                name="peso"
+                maxlength="3"
+                placeholder="Peso"
+                required
+              />
+              <label class="input-label" for="peso">Peso</label>
+              <span class="input-mensagem-erro"
+                >Este campo não está válido</span
+              >
+            </div>
 
+            <div class="input-container">
+              <input
+                type="text"
+                class="input"
+                id="altura"
+                name="altura"
+                onkeydown=""
+                placeholder="Altura"
+                maxlength="4"
+                value=""
+                required
+              />
+              <label class="input-label" for="altura">Altura</label>
+              <span class="input-mensagem-erro"
+                >Este campo não está válido</span
+              >
+            </div>
+          </fieldset>
+          <button class="botao" type="submit">Enviar</button>
+        </form>
+      </section>
+      <div id="resultado"></div>
+    </main>
+    <script src="./assets/js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script>
+      $("#altura").mask("#####0.0", { reverse: true });
+
+      $("#altura").on("keyup", function () {
+        if ($(this).val().length > 3) {
+          mascara = "####00.00";
+        } else {
+          mascara = "####0.0";
+        }
+
+        $("#altura").mask(mascara, { reverse: true });
+      });
+    </script>
+  </body>
 </html>

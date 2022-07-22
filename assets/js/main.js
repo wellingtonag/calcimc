@@ -173,3 +173,6 @@ function setResultado(msg, isValid) {
   p.innerHTML = msg;
   resultado.appendChild(p);
 }
+// document.getElementById("altura").addEventListener("change", function () {
+//   this.value = parseFloat(this.value).toFixed(2);
+// });

@@ -1,0 +1,14 @@
+.paragrafo-resultado,
+.bad {
+  background: #ebe1e0c7;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.bad {
+  background: rgb(255, 150, 150);
+}
+.paragrafo-resultado p {
+  font-size: var(--fonte-tamanho-resultado);
+  margin-bottom: 0.5rem;
+}
