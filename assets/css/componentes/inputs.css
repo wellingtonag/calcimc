@@ -13,9 +13,20 @@
   position: relative;
   margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+  flex-wrap: wrap;
   justify-content: flex-end;
   box-sizing: border-box;
+}
+
+.esquerda {
+  width: 50%;
+  float: left;
+}
+
+.direita {
+  width: 50%;
+  float: right;
 }
 
 .input {
@@ -28,7 +39,7 @@
 
 .input::placeholder {
   visibility: hidden;
-  color: #00000000;
+  color: #000;
 }
 
 .input:focus {
@@ -135,4 +146,14 @@
   color: var(--cor-aviso);
   margin-top: 0.5rem;
   padding-left: 0.5rem;
+}
+
+@media screen  and (max-width: 480px){
+  .esquerda {
+      width: 100%;
+  }
+  .direita{
+      width: 100%;
+      float: left;
+  }
 }

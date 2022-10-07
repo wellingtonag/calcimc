@@ -13,6 +13,25 @@ body {
   padding-left: 1rem;
 }
 
+header .container{
+  padding-top: 1rem;
+  display: flex;/*faz utilizar o flexbox - alinha elementos em tela*/
+  flex-direction:row-reverse;/*vem auto por padrão - deixar por carater semantico*/
+  align-items: right;/*alinha os itens de forma vertical*/
+  justify-content:space-between;/*cria espaço entre elementos do "h2" e "nav"*/ 
+}
+
+header nav a {
+  text-decoration: none;
+  color: var(--cor-contraste-escuro);
+  margin-right: 10px;
+
+}
+/*altera a cor da fonte ao passar o mouse*/
+header nav a:hover{
+  color: var(--cor-transparencia);
+}
+
 .flex {
   display: flex;
 }
@@ -37,5 +56,15 @@ body {
   .container {
     padding-left: calc((100vw - 900px) / 2);
     padding-right: calc((100vw - 900px) / 2);
+  }
+}
+
+@media (max-width: 400px) {
+  header .container {
+    align-items: center;
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 10px;
   }
 }

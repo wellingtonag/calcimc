@@ -72,7 +72,28 @@ form.addEventListener("submit", function (e) {
 
   if (!altura) {
     setResultado("Altura inválida", false);
+    return;
   }
+
+  // if (!email) {
+  //   setResultado("Email inválido", false);
+  //   return;
+  // }
+
+  // if (!telefone) {
+  //   setResultado("Telefone inválido", false);
+  //   return;
+  // }
+
+  // if (!assunto) {
+  //   setResultado("Assunto inválido", false);
+  //   return;
+  // }
+
+  // if (!mensagem) {
+  //   setResultado("Mensagem inválida", false);
+  //   return;
+  // }
 
   const imc = getImc(peso, altura);
   const nivelImc = getNivelImc(imc);

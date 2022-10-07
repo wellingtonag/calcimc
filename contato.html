@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Calcule seu IMC</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+	<link rel="stylesheet" href="./assets/css/base/reset.css" />
+	<link rel="stylesheet" href="./assets/css/cadastro.css" />
+	<link rel="stylesheet" href="./assets/css/base/base.css" />
+	<link rel="stylesheet" href="./assets/css/base/variaveis.css" />
+	<link rel="stylesheet" href="./assets/css/componentes/botao.css" />
+	<link rel="stylesheet" href="./assets/css/componentes/cartao.css" />
+	<link rel="stylesheet" href="./assets/css/componentes/graus.css" />
+	<link rel="stylesheet" href="./assets/css/componentes/inputs.css" />
+	<link rel="stylesheet" href="./assets/css/componentes/resultado.css" />
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<nav>
+				<a href="index.html">Calc IMC</a>
+				<a href="contato.html">Contato</a>
+			</nav>
+		</div>
+	</header>
+	<main class="container flex flex--coluna flex--centro">
+		<div class="cadastro-cabecalho">
+			<img class="cadastro-cabecalho__logo" src="./assets/img/imc.png" alt="Logo IMC" />
+			<h1 class="cadastro-cabecalho__titulo">Contato</h1>
+		</div>
+		<section class="cartao">
+			<h2 class="cartao__titulo">Preencha os dados a seguir:</h2>
+			<form method="POST" id="formulario" action="contato.php" class="formulario flex flex--coluna">
+
+
+				<fieldset>
+					<legend class="formulario__legenda">Informações básicas</legend>
+
+					<div class="input-container">
+						<input name="nome" id="nome" class="input" type="text" placeholder="Digite o seu nome" data-tipo="nome"
+							required />
+						<label class="input-label" for="nome">Nome</label>
+						<span class="input-mensagem-erro">Este campo não está válido</span>
+					</div>
+				</fieldset>
+				<!-- <table>
+                    <tr>
+                        <td>
+                            <label>E-mail</label><br>
+                            <input type="email" name="email" placeholder="Entre com o seu E-mail">
+                        </td>
+
+                        <td>
+                            <label>Telefone</label><br>
+                            <input type="email" name="number" placeholder="Entre com o seu telefone">
+                        </td>
+                    </tr>
+                </table> -->
+				<fieldset>
+					<div class="input-container esquerda">
+
+
+						<input name="email" id="email" class="input" type="email" placeholder="Digite o seu E-mail"
+							data-tipo="email" required>
+						<label class="input-label" for="email">E-mail</label>
+						<span class="input-mensagem-erro">Este campo não está válido</span>
+
+					</div>
+
+					<div class="input-container direita">
+						<input name="telefone" id="telefone" class="input" type="text" placeholder="(11) 12345-6789"
+							data-tipo="telefone" onkeyup="mascaraFone(event)" required>
+						<label class="input-label" for="telefone">Telefone</label>
+						<span class="input-mensagem-erro">Este campo não está válido</span>
+
+					</div>
+				</fieldset>
+				<fieldset>
+					<div class="input-container">
+						<input name="assunto" size="50" class="input" type="text" placeholder="Informe o assunto"
+							data-tipo="assunto" required>
+						<label class="input-label" for="assunto">Assunto</label>
+						<span class="input-mensagem-erro">Este campo não está válido</span>
+					</div>
+
+
+					<div class="input-container">
+						<textarea name="mensagem" id="mensagem" class="input" type="textarea" placeholder="Digite a sua mensagem"
+							rows="5" cols="50" required></textarea>
+						<label class="input-label" for="mensagem">Mensagem</label>
+
+					</div>
+				</fieldset>
+				<button class="botao" type="submit">Enviar</button>
+
+			</form>
+	</main>
+	<script src="./assets/js/main.js"></script>
+
+	<script>
+		function mascaraFone(event) {
+			var valor = document.getElementById("telefone").attributes[0].ownerElement['value'];
+			var retorno = valor.replace(/\D/g, "");
+			retorno = retorno.replace(/^0/, "");
+			if (retorno.length > 10) {
+				retorno = retorno.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+			} else if (retorno.length > 5) {
+				if (retorno.length == 6 && event.code == "Backspace") {
+					// necessário pois senão o "-" fica sempre voltando ao dar backspace
+					return;
+				}
+				retorno = retorno.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+			} else if (retorno.length > 2) {
+				retorno = retorno.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+			} else {
+				if (retorno.length != 0) {
+					retorno = retorno.replace(/^(\d*)/, "($1");
+				}
+			}
+			document.getElementById("telefone").attributes[0].ownerElement['value'] = retorno;
+		}
+	</script>
+</body>
+
+</html>
