@@ -42,39 +42,26 @@
 					<legend class="formulario__legenda">Informações básicas</legend>
 
 					<div class="input-container">
-						<input name="nome" id="nome" class="input" type="text" placeholder="Digite o seu nome" data-tipo="nome"
-							required />
+						<input name="nome" id="nome" class="input" type="text" data-tipo="nome" required />
 						<label class="input-label" for="nome">Nome</label>
 						<span class="input-mensagem-erro">Este campo não está válido</span>
 					</div>
 				</fieldset>
-				<!-- <table>
-                    <tr>
-                        <td>
-                            <label>E-mail</label><br>
-                            <input type="email" name="email" placeholder="Entre com o seu E-mail">
-                        </td>
 
-                        <td>
-                            <label>Telefone</label><br>
-                            <input type="email" name="number" placeholder="Entre com o seu telefone">
-                        </td>
-                    </tr>
-                </table> -->
 				<fieldset>
 					<div class="input-container esquerda">
 
 
-						<input name="email" id="email" class="input" type="email" placeholder="Digite o seu E-mail"
-							data-tipo="email" required>
+						<input name="email" id="email" class="input" type="email" data-tipo="email" required>
 						<label class="input-label" for="email">E-mail</label>
 						<span class="input-mensagem-erro">Este campo não está válido</span>
 
 					</div>
 
 					<div class="input-container direita">
-						<input name="telefone" id="telefone" class="input" type="text" placeholder="(11) 12345-6789"
-							data-tipo="telefone" onkeyup="mascaraFone(event)" required>
+						<input name="telefone" id="telefone" class="input" type="text"
+							placeholder="             Apenas números" data-tipo="telefone" onkeyup="mascaraFone(event)"
+							required>
 						<label class="input-label" for="telefone">Telefone</label>
 						<span class="input-mensagem-erro">Este campo não está válido</span>
 
@@ -82,16 +69,15 @@
 				</fieldset>
 				<fieldset>
 					<div class="input-container">
-						<input name="assunto" size="50" class="input" type="text" placeholder="Informe o assunto"
-							data-tipo="assunto" required>
+						<input name="assunto" size="50" class="input" type="text" data-tipo="assunto" required>
 						<label class="input-label" for="assunto">Assunto</label>
 						<span class="input-mensagem-erro">Este campo não está válido</span>
 					</div>
 
 
 					<div class="input-container">
-						<textarea name="mensagem" id="mensagem" class="input" type="textarea" placeholder="Digite a sua mensagem"
-							rows="5" cols="50" required></textarea>
+						<textarea name="mensagem" id="mensagem" class="input" type="textarea" rows="5" cols="50"
+							required></textarea>
 						<label class="input-label" for="mensagem">Mensagem</label>
 
 					</div>
